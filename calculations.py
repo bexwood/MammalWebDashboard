@@ -2,7 +2,7 @@ import json
 import datetime  
 import re
 
-def csProvdingImages(now, year):
+def csProvdingImages(yearAgo):
     file = open('photo.json')
     data = json.load(file)
 
@@ -23,14 +23,14 @@ def csProvdingImages(now, year):
         elif test2.match(i["taken"]) is not None:
             date = datetime.datetime.strptime(i["taken"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["person_id"] not in lastYearScientists and now-year>date:
+        if i["person_id"] not in lastYearScientists and yearAgo>date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
 
     file.close()
     return allTime, lastYear
 
-def csClassifyingImages(now, year):
+def csClassifyingImages(yearAgo):
     file = open('animal.json')
     data = json.load(file)
 
@@ -51,14 +51,14 @@ def csClassifyingImages(now, year):
         elif test2.match(i["timestamp"]) is not None:
             date = datetime.datetime.strptime(i["timestamp"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["person_id"] not in lastYearScientists and now-year>date:
+        if i["person_id"] not in lastYearScientists and yearAgo>date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
 
     file.close()
     return allTime, lastYear
 
-def isUploaded(now, year):
+def isUploaded(yearAgo):
     file = open('photo.json')
     data = json.load(file)
 
@@ -76,7 +76,31 @@ def isUploaded(now, year):
         elif test2.match(i["taken"]) is not None:
             date = datetime.datetime.strptime(i["taken"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["sequence_num"] == 1 and now-year>date:
+        if i["sequence_num"] == 1 and yearAgo>date:
+            lastYear += 1 
+        
+
+    file.close()
+    return allTime, lastYear
+
+def classificationEvents(yearAgo):
+    file = open('animal.json')
+    data = json.load(file)
+
+    lastYear=0
+    allTime=0
+
+    for i in data:
+        allTime +=1
+
+        test1 = re.compile('.{2}/.{2}/.{4} .{2}:.{2}')
+        test2 = re.compile('.{4}-.{2}-.{2} .{2}:.{2}:.{2}')
+        if test1.match(i["timestamp"]) is not None:
+            date = datetime.datetime.strptime(i["timestamp"], '%d/%m/%Y %H:%M') 
+        elif test2.match(i["timestamp"]) is not None:
+            date = datetime.datetime.strptime(i["timestamp"], '%Y-%m-%d %H:%M:%S') 
+
+        if yearAgo>date:
             lastYear += 1 
         
 
@@ -87,12 +111,15 @@ def isUploaded(now, year):
 
 now = datetime.datetime.now()
 year = datetime.timedelta(days = 365)
+yearAgo = now-year
 
-csProvidingAllTime, csProvidingLastYear = csProvdingImages(now, year)
-csClassifyingAllTime, csClassifyingLastYear = csClassifyingImages(now, year)
-isUploadedAllTime, isUploadedLastYear = csProvdingImages(now, year)
+csProvidingAllTime, csProvidingLastYear = csProvdingImages(yearAgo)
+csClassifyingAllTime, csClassifyingLastYear = csClassifyingImages(yearAgo)
+isUploadedAllTime, isUploadedLastYear = csProvdingImages(yearAgo)
+classificationEventsAllTime, classificationEventsLastYear = classificationEvents(yearAgo)
 
 print("KPI 1a. All time:",csProvidingAllTime,"Last year:",csProvidingLastYear)
 print("KPI 1b. All time:",csClassifyingAllTime,"Last year:",csClassifyingLastYear)
 print("KPI 2b. All time:",isUploadedAllTime,"Last year:",isUploadedLastYear)
+print("KPI 3a. All time:",classificationEventsAllTime,"Last year:",classificationEventsLastYear)
 
