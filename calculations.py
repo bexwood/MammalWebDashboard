@@ -23,7 +23,7 @@ def csProvdingImages(yearAgo):
         elif test2.match(i["taken"]) is not None:
             date = datetime.datetime.strptime(i["taken"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["person_id"] not in lastYearScientists and yearAgo>date:
+        if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
 
@@ -51,7 +51,7 @@ def csClassifyingImages(yearAgo):
         elif test2.match(i["timestamp"]) is not None:
             date = datetime.datetime.strptime(i["timestamp"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["person_id"] not in lastYearScientists and yearAgo>date:
+        if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
 
@@ -76,7 +76,7 @@ def isUploaded(yearAgo):
         elif test2.match(i["taken"]) is not None:
             date = datetime.datetime.strptime(i["taken"], '%Y-%m-%d %H:%M:%S') 
 
-        if i["sequence_num"] == 1 and yearAgo>date:
+        if i["sequence_num"] == 1 and yearAgo<date:
             lastYear += 1 
         
 
@@ -100,7 +100,7 @@ def classificationEvents(yearAgo):
         elif test2.match(i["timestamp"]) is not None:
             date = datetime.datetime.strptime(i["timestamp"], '%Y-%m-%d %H:%M:%S') 
 
-        if yearAgo>date:
+        if yearAgo<date:
             lastYear += 1 
         
 
