@@ -3,7 +3,7 @@ import datetime
 import re
 
 def csProvdingImages(now, year):
-    file = open('data.json')
+    file = open('photo.json')
     data = json.load(file)
 
     lastYear=0
@@ -30,9 +30,36 @@ def csProvdingImages(now, year):
     file.close()
     return allTime, lastYear
 
+def csClassifyingImages(now, year):
+    file = open('animal.json')
+    data = json.load(file)
+
+    lastYear=0
+    allTime=0
+    allTimeScientists = []
+    lastYearScientists = []
+
+    for i in data:
+        if i["person_id"] not in allTimeScientists:
+            allTimeScientists.append(i["person_id"])
+            allTime += 1
+
+        test1 = re.compile('.{2}/.{2}/.{4} .{2}:.{2}')
+        test2 = re.compile('.{4}-.{2}-.{2} .{2}:.{2}:.{2}')
+        if test1.match(i["timestamp"]) is not None:
+            date = datetime.datetime.strptime(i["timestamp"], '%d/%m/%Y %H:%M') 
+        elif test2.match(i["timestamp"]) is not None:
+            date = datetime.datetime.strptime(i["timestamp"], '%Y-%m-%d %H:%M:%S') 
+
+        if i["person_id"] not in lastYearScientists and now-year>date:
+            lastYearScientists.append(i["person_id"])
+            lastYear += 1 
+
+    file.close()
+    return allTime, lastYear
 
 def isUploaded(now, year):
-    file = open('data.json')
+    file = open('photo.json')
     data = json.load(file)
 
     lastYear=0
@@ -62,8 +89,10 @@ now = datetime.datetime.now()
 year = datetime.timedelta(days = 365)
 
 csProvidingAllTime, csProvidingLastYear = csProvdingImages(now, year)
+csClassifyingAllTime, csClassifyingLastYear = csClassifyingImages(now, year)
 isUploadedAllTime, isUploadedLastYear = csProvdingImages(now, year)
 
 print("KPI 1a. All time:",csProvidingAllTime,"Last year:",csProvidingLastYear)
+print("KPI 1b. All time:",csClassifyingAllTime,"Last year:",csClassifyingLastYear)
 print("KPI 2b. All time:",isUploadedAllTime,"Last year:",isUploadedLastYear)
 
