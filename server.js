@@ -44,29 +44,34 @@ function pull_data(sql_query, filename) {
 // Functions to create:
 
 function KPI1_images_provided(){
-    sql_query = 'SELECT COUNT(person_id), person_id FROM mammalWeb.Photo6 GROUP BY person_id ORDER BY person_id';
+    sql_query = 'SELECT COUNT(person_id) as number, person_id FROM mammalWeb.Photo6 GROUP BY person_id ORDER BY person_id';
     pull_data(sql_query, '1_images_provided.json');
     
   }
 
 function KPI1_images_classified(){
-    sql_query = 'SELECT COUNT(person_id), person_id FROM mammalWeb.Animal GROUP BY person_id ORDER BY person_id';
+    sql_query = 'SELECT COUNT(person_id) as number, person_id FROM mammalWeb.Animal GROUP BY person_id ORDER BY person_id';
     pull_data(sql_query, '1_images_classified.json');
     
 }
 
 function KPI2_camera_days(){
-    sql_query = 'SELECT COUNT(uploaded), uploaded FROM mammalWeb.Photo6 GROUP BY uploaded ORDER BY uploaded';
+    sql_query = 'SELECT COUNT(uploaded) as number, uploaded FROM mammalWeb.Photo6 GROUP BY uploaded ORDER BY uploaded';
     pull_data(sql_query, '2_camera_days.json');
 }
 
 function KPI3_classification_events(){
-  sql_query = 'SELECT COUNT(DISTINCT photo_id) FROM mammalWeb.Animal';
+  sql_query = 'SELECT COUNT(DISTINCT photo_id) as number FROM mammalWeb.Animal';
   pull_data(sql_query, '3_classification_events.json');
 }
 function KPI3_animals(){
-  sql_query = 'SELECT COUNT(DISTINCT animal_id), species FROM mammalWeb.Animal GROUP BY species';
+  sql_query = 'SELECT COUNT(DISTINCT animal_id) as number, species FROM mammalWeb.Animal GROUP BY species';
   pull_data(sql_query, '3_animals.json');
+}
+
+function KPI4_projects(){
+  sql_query = 'SELECT COUNT(project_id) as number FROM mammalWeb.Project';
+  pull_data(sql_query, '4_projects.json');
 }
 
 KPI1_images_provided()
@@ -74,6 +79,7 @@ KPI1_images_classified()
 KPI2_camera_days()
 KPI3_classification_events()
 KPI3_animals()
+KPI4_projects()
 
 
 
