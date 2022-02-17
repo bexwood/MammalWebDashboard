@@ -142,17 +142,23 @@ def classificationAnimals(yearAgo):
     species = []
 
     for i in data:
-        if not any(i["species"] in animal for animal in species):
+        if not any(i["species"] in sublist for sublist in species):
             species.append([i["species"],1])
         else:
-            for animal in species:
-                if animal[0] == i["species"]:
-                    animal[1] += 1
+            for sublist in species:
+                if sublist[0] == i["species"]:
+                    sublist[1] += 1
                     break 
         
     file.close()
-    species = sorted(species,key=lambda animal: animal[0])
-    return species
+    species = sorted(species,key=lambda sublist: sublist[0])
+    numberSpecies = len(species)
+
+    numberAnimals = 0
+    for sublist in species:
+        numberAnimals = numberAnimals + sublist[1]
+
+    return species, numberSpecies, numberAnimals
 
 
 
@@ -165,12 +171,11 @@ csClassifyingAllTime, csClassifyingLastYear = csClassifyingImages(yearAgo)
 isCameraDaysAllTimes, isCameraDaysLastYear = isCameraDays(yearAgo)
 isUploadedAllTime, isUploadedLastYear = isUploaded(yearAgo)
 classificationEventsAllTime, classificationEventsLastYear = classificationEvents(yearAgo)
-species = classificationAnimals(yearAgo)
+species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
 
-print("KPI 1a. All time:",csProvidingAllTime,"Last year:",csProvidingLastYear)
-print("KPI 1b. All time:",csClassifyingAllTime,"Last year:",csClassifyingLastYear)
-print("KPI 2a. All time:",isCameraDaysAllTimes,"Last year:",isCameraDaysLastYear)
-print("KPI 2b. All time:",isUploadedAllTime,"Last year:",isUploadedLastYear)
-print("KPI 3a. All time:",classificationEventsAllTime,"Last year:",classificationEventsLastYear)
-print("KPI 3d. Number of animals identified (by species):",species)
-print(species)
+print("KPI 1a. \nAll time:",csProvidingAllTime,"\nLast year:",csProvidingLastYear,"\n")
+print("KPI 1b. \nAll time:",csClassifyingAllTime,"\nLast year:",csClassifyingLastYear,"\n")
+print("KPI 2a. \nAll time:",isCameraDaysAllTimes,"\nLast year:",isCameraDaysLastYear,"\n")
+print("KPI 2b. \nAll time:",isUploadedAllTime,"\nLast year:",isUploadedLastYear,"\n")
+print("KPI 3a. \nAll time:",classificationEventsAllTime,"\nLast year:",classificationEventsLastYear,"\n")
+print("KPI 3d. \nNumber of animals identified:",numberAnimals,"\nNumber of species identified:",numberSpecies,"\nAnimals identified by species:",species,"\n")
