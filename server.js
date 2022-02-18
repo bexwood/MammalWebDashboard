@@ -74,13 +74,28 @@ function KPI4_projects(){
   pull_data(sql_query, '4_projects.json');
 }
 
+function KPI4_projects(){
+  sql_query = 'SELECT COUNT(project_id) as number FROM mammalWeb.Project';
+  pull_data(sql_query, '4_projects.json');
+}
+
+function animalsFile(){
+  sql_query = 'SELECT person_id, timestamp, species FROM mammalWeb.Animal';
+  pull_data(sql_query, 'animal.json');
+}
+
+function photoFile(){
+  sql_query = 'SELECT person_id, taken, sequence_num FROM mammalWeb.Photo6';
+  pull_data(sql_query, 'photo.json');
+}
+
 KPI1_images_provided()
 KPI1_images_classified()
 KPI2_camera_days()
 KPI3_classification_events()
 KPI3_animals()
 KPI4_projects()
-
-
+animalsFile()
+photoFile()
 
 
