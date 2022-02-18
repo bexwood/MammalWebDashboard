@@ -10,6 +10,7 @@ def csProvdingImages(yearAgo):
     allTime=0
     allTimeScientists = []
     lastYearScientists = []
+    byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
 
     for i in data:
         if i["person_id"] not in allTimeScientists:
@@ -26,9 +27,10 @@ def csProvdingImages(yearAgo):
         if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
+            byMonth[date.month-1] += 1
 
     file.close()
-    return allTime, lastYear
+    return allTime, lastYear, byMonth
 
 def csClassifyingImages(yearAgo):
     file = open('animal.json')
@@ -38,6 +40,7 @@ def csClassifyingImages(yearAgo):
     allTime=0
     allTimeScientists = []
     lastYearScientists = []
+    byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
 
     for i in data:
         if i["person_id"] not in allTimeScientists:
@@ -54,9 +57,10 @@ def csClassifyingImages(yearAgo):
         if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
+            byMonth[date.month-1] += 1
 
     file.close()
-    return allTime, lastYear
+    return allTime, lastYear, byMonth
 
 def isCameraDays(yearAgo):
     file = open('photo.json')
@@ -66,6 +70,7 @@ def isCameraDays(yearAgo):
     allTime=0
     allTimeDates = []
     lastYearDates = []
+    byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
 
     for i in data:
         test1 = re.compile('.{2}/.{2}/.{4} .{2}:.{2}')
@@ -82,9 +87,10 @@ def isCameraDays(yearAgo):
         if date not in lastYearDates and yearAgo<date:
             lastYearDates.append(date)
             lastYear += 1 
+            byMonth[date.month-1] += 1
 
     file.close()
-    return allTime, lastYear
+    return allTime, lastYear, byMonth
 
 def isUploaded(yearAgo):
     file = open('photo.json')
@@ -92,6 +98,7 @@ def isUploaded(yearAgo):
 
     lastYear=0
     allTime=0
+    byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
 
     for i in data:
         if i["sequence_num"] == 1:
@@ -106,10 +113,11 @@ def isUploaded(yearAgo):
 
         if i["sequence_num"] == 1 and yearAgo<date:
             lastYear += 1 
+            byMonth[date.month-1] += 1
         
 
     file.close()
-    return allTime, lastYear
+    return allTime, lastYear, byMonth
 
 def classificationEvents(yearAgo):
     file = open('animal.json')
@@ -117,6 +125,7 @@ def classificationEvents(yearAgo):
 
     lastYear=0
     allTime=0
+    byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
 
     for i in data:
         allTime +=1
@@ -130,10 +139,10 @@ def classificationEvents(yearAgo):
 
         if yearAgo<date:
             lastYear += 1 
-        
+            byMonth[date.month-1] += 1
 
     file.close()
-    return allTime, lastYear
+    return allTime, lastYear, byMonth
 
 def classificationAnimals(yearAgo):
     file = open('animal.json')
@@ -166,16 +175,16 @@ now = datetime.datetime.now()
 year = datetime.timedelta(days = 365)
 yearAgo = now-year
 
-csProvidingAllTime, csProvidingLastYear = csProvdingImages(yearAgo)
-csClassifyingAllTime, csClassifyingLastYear = csClassifyingImages(yearAgo)
-isCameraDaysAllTimes, isCameraDaysLastYear = isCameraDays(yearAgo)
-isUploadedAllTime, isUploadedLastYear = isUploaded(yearAgo)
-classificationEventsAllTime, classificationEventsLastYear = classificationEvents(yearAgo)
+csProvidingAllTime, csProvidingLastYear, csProvidingByMonth = csProvdingImages(yearAgo)
+csClassifyingAllTime, csClassifyingLastYear, csClassifyingByMonth  = csClassifyingImages(yearAgo)
+isCameraDaysAllTimes, isCameraDaysLastYear, isCameraDaysByMonth = isCameraDays(yearAgo)
+isUploadedAllTime, isUploadedLastYear, isUploadedByMonth = isUploaded(yearAgo)
+classificationEventsAllTime, classificationEventsLastYear, classificationEventsByMonth = classificationEvents(yearAgo)
 species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
 
-print("KPI 1a. \nAll time:",csProvidingAllTime,"\nLast year:",csProvidingLastYear,"\n")
-print("KPI 1b. \nAll time:",csClassifyingAllTime,"\nLast year:",csClassifyingLastYear,"\n")
-print("KPI 2a. \nAll time:",isCameraDaysAllTimes,"\nLast year:",isCameraDaysLastYear,"\n")
-print("KPI 2b. \nAll time:",isUploadedAllTime,"\nLast year:",isUploadedLastYear,"\n")
-print("KPI 3a. \nAll time:",classificationEventsAllTime,"\nLast year:",classificationEventsLastYear,"\n")
+print("KPI 1a. \nAll time:",csProvidingAllTime,"\nLast year:",csProvidingLastYear,"\nBy month:",csProvidingByMonth,"\n")
+print("KPI 1b. \nAll time:",csClassifyingAllTime,"\nLast year:",csClassifyingLastYear,"\nBy month:",csClassifyingByMonth,"\n")
+print("KPI 2a. \nAll time:",isCameraDaysAllTimes,"\nLast year:",isCameraDaysLastYear,"\nBy month:",isCameraDaysByMonth,"\n")
+print("KPI 2b. \nAll time:",isUploadedAllTime,"\nLast year:",isUploadedLastYear,"\nBy month:",isUploadedByMonth,"\n")
+print("KPI 3a. \nAll time:",classificationEventsAllTime,"\nLast year:",classificationEventsLastYear,"\nBy month:",classificationEventsByMonth,"\n")
 print("KPI 3d. \nNumber of animals identified:",numberAnimals,"\nNumber of species identified:",numberSpecies,"\nAnimals identified by species:",species,"\n")
