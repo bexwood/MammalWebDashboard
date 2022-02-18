@@ -89,13 +89,49 @@ function photoFile(){
   pull_data(sql_query, 'photo.json');
 }
 
-KPI1_images_provided()
-KPI1_images_classified()
-KPI2_camera_days()
-KPI3_classification_events()
-KPI3_animals()
-KPI4_projects()
+
+
+function addData(file){
+  if(file[0].hasOwnProperty('sequence_num')){
+    const  fs = require('fs');
+    var fileString = fs.readFileSync('photo1.json').toString();
+    var original= JSON.parse(fileString);
+    for(var i = 0; i < file.length; i++) {
+      var obj = file[i];
+      original.push(obj);
+    }
+    var final = JSON.stringify(original, null, 1);
+    fs.writeFile('photo1.json', final, (err) => {
+      if (err) {
+          throw err;
+      }
+    });
+  }
+  if(file[0].hasOwnProperty('species')){
+    const  fs = require('fs');
+    var fileString = fs.readFileSync('animal1.json').toString();
+    var original= JSON.parse(fileString);
+    for(var i = 0; i < file.length; i++) {
+      var obj = file[i];
+      original.push(obj);
+    }
+    var final = JSON.stringify(original, null, 1);
+    fs.writeFile('animal1.json', final, (err) => {
+      if (err) {
+          throw err;
+      }
+    });
+  }
+}
+
+function addFile(filename){
+  const  fs = require('fs');
+  var fileString = fs.readFileSync(filename).toString();
+  var data= JSON.parse(fileString);
+  addData(data)
+}
+
 animalsFile()
 photoFile()
-
+addFile('file2.json')
 
