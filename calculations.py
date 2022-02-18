@@ -11,6 +11,7 @@ def csProvdingImages(yearAgo):
     allTimeScientists = []
     lastYearScientists = []
     byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
+    byMonthScientists = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
     for i in data:
         if i["person_id"] not in allTimeScientists:
@@ -27,6 +28,9 @@ def csProvdingImages(yearAgo):
         if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
+
+        if i["person_id"] not in byMonthScientists[date.month-1] and yearAgo<date:
+            byMonthScientists[date.month-1].append(i["person_id"])
             byMonth[date.month-1] += 1
 
     file.close()
@@ -41,6 +45,7 @@ def csClassifyingImages(yearAgo):
     allTimeScientists = []
     lastYearScientists = []
     byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
+    byMonthScientists = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
     for i in data:
         if i["person_id"] not in allTimeScientists:
@@ -57,6 +62,9 @@ def csClassifyingImages(yearAgo):
         if i["person_id"] not in lastYearScientists and yearAgo<date:
             lastYearScientists.append(i["person_id"])
             lastYear += 1 
+         
+        if i["person_id"] not in byMonthScientists[date.month-1] and yearAgo<date:
+            byMonthScientists[date.month-1].append(i["person_id"])
             byMonth[date.month-1] += 1
 
     file.close()
@@ -71,6 +79,7 @@ def isCameraDays(yearAgo):
     allTimeDates = []
     lastYearDates = []
     byMonth = [0,0,0,0,0,0,0,0,0,0,0,0]
+    byMonthDates = [[],[],[],[],[],[],[],[],[],[],[],[]]
 
     for i in data:
         test1 = re.compile('.{2}/.{2}/.{4} .{2}:.{2}')
@@ -87,6 +96,9 @@ def isCameraDays(yearAgo):
         if date not in lastYearDates and yearAgo<date:
             lastYearDates.append(date)
             lastYear += 1 
+        
+        if date not in byMonthDates[date.month-1] and yearAgo<date:
+            byMonthDates[date.month-1].append(date)
             byMonth[date.month-1] += 1
 
     file.close()
