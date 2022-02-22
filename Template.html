@@ -87,12 +87,18 @@
             </div>
           </nav>
 
-          <div class="container-fluid">
+          <div class="KPI1">
             <div class="row row-cols-1 row-cols-md-3 g-4">
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI1_title">CITIZEN SCIENTISTS</h4>
+                    <h6 class = "description" > images for classification </h6>
+                    {% autoescape off %}
+                    <div id = KPI1_image1> {{ graph|safe }}</div>
+                    {% endautoescape %}
+                    <!-- <img class = graph src="./KPI1.1.png" alt="" width="400" height="400"> -->
+                    <!-- <script id="infogram_0_d76cdf3e-df91-4fc0-a846-b71af0bb79e5" title="Line Chart" src="https://e.infogram.com/js/dist/embed.js?yss" type="text/javascript"></script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/d76cdf3e-df91-4fc0-a846-b71af0bb79e5" style="color:#989898!important;text-decoration:none!important;" target="_blank">Line Chart</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div> -->
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
@@ -103,7 +109,8 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI2_title">Image sequences</h4>
+                    <h6 class = "description" > images for classification </h6>
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
@@ -114,7 +121,8 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI3_title">Classification</h4>
+                    <h6 class = "description" > images for classification </h6>
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
@@ -125,7 +133,8 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI4_title">Quantity/quality/coverage of data in </h4>
+                    <h6 class = "description" > images for classification </h6>
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
@@ -136,7 +145,8 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI5_title">Impact</h4>
+                    <h6 class = "description" > images for classification </h6>
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
@@ -147,20 +157,12 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h4 class="card-title" id = "KPI6_title">Funding</h4>
+                    <h6 class = "description" > images for classification </h6>
                     <a type="button" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                       <img class="info_svg" src="info-button.svg">
                     </a>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <img class="info_svg" src="info-button.svg">
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
                 </div>
               </div>

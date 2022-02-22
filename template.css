@@ -1,9 +1,16 @@
+
+.opensans {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+}
+
 .navbar {
     margin-bottom: 10px;
 }
 
 .card {
     margin: 1px;
+    background-color: #E6E7E9;
 }
 
 .info_svg {
@@ -14,3 +21,45 @@
     width: 15px;
     margin: 2px;
 }
+h4{ 
+    text-transform: uppercase;
+    text-align: center;  
+    font-weight: bolder;
+    letter-spacing: 0.17em;
+}
+
+.description{
+    color: #3e3e3f;
+    text-transform: uppercase;
+    text-align: center;  
+    font-weight: 250;
+}
+.graph{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#KPI1_title{
+    color: #F7931D;
+}
+
+#KPI2_title{
+    color: #E15183;
+}
+
+#KPI3_title{
+    color: #0C6638;
+}
+
+#KPI4_title{
+    color: #1d48c0;
+}
+#KPI5_title{
+    color: #ee3f36;
+}
+#KPI6_title{
+    color: #a10587;
+}
+
