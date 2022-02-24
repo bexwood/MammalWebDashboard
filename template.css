@@ -63,3 +63,17 @@ h4{
     color: #a10587;
 }
 
+.colour-change {
+    background-color: Transparent;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(168, 168, 168);
+    padding: .55em;
+    border: none;
+  }
+
+.colour-change:hover {
+    background-color: Transparent;
+    color: rgb(207, 207, 207);
+    padding: .55em;
+    border: none;
+   }
