@@ -23,7 +23,7 @@
 }
 
 .button {
-    background-image: url(info-button.svg);
+    background-image: url(images/info-button.svg);
     background-repeat: no-repeat;
     background-size: 100% auto;
     border: none;
