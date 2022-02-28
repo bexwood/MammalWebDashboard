@@ -139,5 +139,5 @@ function addFile(filename){
 animalsFile()
 photoFile()
 speciesFile()
-addFile('file2.json')
+//addFile('file2.json')
 
