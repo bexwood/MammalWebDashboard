@@ -13,15 +13,6 @@
     background-color: #E6E7E9;
 }
 
-.info_svg {
-    position:absolute;
-    top: 5px;
-    right: 5px;
-    height: 15px;
-    width: 15px;
-    margin: 2px;
-}
-
 .button {
     background-image: url(images/info-button.svg);
     background-repeat: no-repeat;

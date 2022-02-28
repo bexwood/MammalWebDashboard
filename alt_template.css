@@ -1,0 +1,85 @@
+
+.opensans {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+  }
+  
+  .navbar {
+      margin-bottom: 10px;
+  }
+  
+  .card {
+      margin: 1px;
+      background-color: #E6E7E9;
+  }
+  
+  .button {
+      background-image: url(images/info-button.svg);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      border: none;
+      position:absolute;
+      top: 5px;
+      right: 5px;
+      height: 15px;
+      width: 15px;
+      margin: 2px;
+  }
+  
+  h4{ 
+      text-transform: uppercase;
+      text-align: center;  
+      font-weight: bolder;
+      letter-spacing: 0.17em;
+  }
+  
+  .description{
+      color: #3e3e3f;
+      text-transform: uppercase;
+      text-align: center;  
+      font-weight: 250;
+  }
+  .graph{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  
+  }
+  
+  #KPI1_title{
+      color: #D81B60;
+  }
+  
+  #KPI2_title{
+      color: #F7931D;
+  }
+  
+  #KPI3_title{
+      color: #1E88E5;
+  }
+  
+  #KPI4_title{
+      color: #004D40;
+  }
+  #KPI5_title{
+      color: #FFC107;
+  }
+  #KPI6_title{
+      color: #3E3E3F;
+  }
+  
+  .colour-change {
+      background-color: Transparent;
+      font-family: "Open Sans", sans-serif;
+      color: rgb(168, 168, 168);
+      padding: .55em;
+      border: none;
+    }
+  
+  .colour-change:hover {
+      background-color: Transparent;
+      color: rgb(207, 207, 207);
+      padding: .55em;
+      border: none;
+     }
+  
