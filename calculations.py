@@ -159,12 +159,17 @@ def classificationEvents(yearAgo):
 def classificationAnimals(yearAgo):
     file = open('animal.json')
     data = json.load(file)
+    file = open('species.json')
+    speciesFile = json.load(file)
 
     species = []
 
     for i in data:
         if not any(i["species"] in sublist for sublist in species):
-            species.append([i["species"],1])
+            for j in speciesFile:
+                if j["option_id"] == i["species"]:
+                    break
+            species.append([i["species"],1,j["option_name"]])
         else:
             for sublist in species:
                 if sublist[0] == i["species"]:

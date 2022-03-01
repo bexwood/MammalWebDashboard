@@ -89,6 +89,11 @@ function photoFile(){
   pull_data(sql_query, 'photo.json');
 }
 
+function speciesFile(){
+  sql_query = 'SELECT option_id, option_name FROM mammalWeb.Options';
+  pull_data(sql_query, 'species.json');
+}
+
 
 
 function addData(file){
@@ -133,5 +138,6 @@ function addFile(filename){
 
 animalsFile()
 photoFile()
-addFile('file2.json')
+speciesFile()
+//addFile('file2.json')
 
