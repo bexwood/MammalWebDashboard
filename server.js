@@ -1,8 +1,3 @@
-//const app = require('./app');
-
-//app.listen(8090);
-
-
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
@@ -21,7 +16,6 @@ function pull_data(sql_query, filename) {
         if (err) throw err;
         const fs = require('fs');
         data = JSON.stringify(result, null, 1);
-        //data = JSON.parse(data);
         fs.writeFile(filename, data, (err) => {
           if (err) {
               throw err;
@@ -41,43 +35,7 @@ function pull_data(sql_query, filename) {
 };
 
 
-// Functions to create:
-
-function KPI1_images_provided(){
-    sql_query = 'SELECT COUNT(person_id) as number, person_id FROM mammalWeb.Photo6 GROUP BY person_id ORDER BY person_id';
-    pull_data(sql_query, '1_images_provided.json');
-    
-  }
-
-function KPI1_images_classified(){
-    sql_query = 'SELECT COUNT(person_id) as number, person_id FROM mammalWeb.Animal GROUP BY person_id ORDER BY person_id';
-    pull_data(sql_query, '1_images_classified.json');
-    
-}
-
-function KPI2_camera_days(){
-    sql_query = 'SELECT COUNT(uploaded) as number, uploaded FROM mammalWeb.Photo6 GROUP BY uploaded ORDER BY uploaded';
-    pull_data(sql_query, '2_camera_days.json');
-}
-
-function KPI3_classification_events(){
-  sql_query = 'SELECT COUNT(DISTINCT photo_id) as number FROM mammalWeb.Animal';
-  pull_data(sql_query, '3_classification_events.json');
-}
-function KPI3_animals(){
-  sql_query = 'SELECT COUNT(DISTINCT animal_id) as number, species FROM mammalWeb.Animal GROUP BY species';
-  pull_data(sql_query, '3_animals.json');
-}
-
-function KPI4_projects(){
-  sql_query = 'SELECT COUNT(project_id) as number FROM mammalWeb.Project';
-  pull_data(sql_query, '4_projects.json');
-}
-
-function KPI4_projects(){
-  sql_query = 'SELECT COUNT(project_id) as number FROM mammalWeb.Project';
-  pull_data(sql_query, '4_projects.json');
-}
+// Functions to create JSON files:
 
 function animalsFile(){
   sql_query = 'SELECT person_id, timestamp, species FROM mammalWeb.Animal';
@@ -94,7 +52,7 @@ function speciesFile(){
   pull_data(sql_query, 'species.json');
 }
 
-
+//Functions to upload a new JSON file:
 
 function addData(file){
   if(file[0].hasOwnProperty('sequence_num')){
@@ -136,8 +94,9 @@ function addFile(filename){
   addData(data)
 }
 
+//Run functions to create the JSON files
+
 animalsFile()
 photoFile()
 speciesFile()
 //addFile('file2.json')
-

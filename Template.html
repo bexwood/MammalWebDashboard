@@ -118,14 +118,19 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI1_title">CITIZEN SCIENTISTS</h4>
-                    <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The citizen scientists KPI portrays information and data for the citizens of different countries who provide MammalWeb with their mammal sightings. This KPI will allow you to see how our users around the UK and Europe have interacted with our platform">
                     </a>
-                    <div id = KPI1_image1> {{ graph|safe }}</div>
-                    
-                    <!-- <img class = graph src="./KPI1.1.png" alt="" width="400" height="400"> -->
-                    <!-- <script id="infogram_0_d76cdf3e-df91-4fc0-a846-b71af0bb79e5" title="Line Chart" src="https://e.infogram.com/js/dist/embed.js?yss" type="text/javascript"></script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/d76cdf3e-df91-4fc0-a846-b71af0bb79e5" style="color:#989898!important;text-decoration:none!important;" target="_blank">Line Chart</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div> -->
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr>
+                    <h6 class = "description" > images for classification </h6>
+
+                    <canvas id="KPI1ag1"></canvas>
+                    <!-- <hr>
+                    <canvas id="KPI1ag2"></canvas> -->
+                    <hr>
+                    <h6 class = "description" > classifying images </h6>
+                    <canvas id="KPI1bg1"></canvas>
+                    <!-- <hr>
+                    <canvas id="KPI1bg2"></canvas> -->
                   </div>
                 </div>
               </div>
@@ -133,10 +138,18 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI2_title">Image sequences</h4>
-                    <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="See how numbers of contributed image sequences and videos have accumulated over time.">
                     </a>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr>
+                    <h6 class = "description" > Number of camera-days</h6>
+                    <canvas id="KPI2ag1"></canvas>
+                    <!-- <hr>
+                    <canvas id="KPI2ag2"></canvas> -->
+                    <hr>
+                    <h6 class = "description" > Number of image sequences uploaded</h6>
+                    <canvas id="KPI2bg1"></canvas>
+                    <!-- <hr>
+                    <canvas id="KPI2bg2"></canvas> -->
                   </div>
                 </div>
               </div>
@@ -144,10 +157,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI3_title">Classification</h4>
-                    <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The classification KPI represents data and trends of the classification of different animals during mammal spotting. See the number of different classifications made, including that of image sequences with complete classifications including the total number of animals identified. ">
                     </a>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr>
+                    <h6 class = "description" > Number of classification "events"</h6>
+                    <canvas id="KPI3ag1"></canvas>
+                    <hr>
+                    <h6 class = "description" > Number of animals (mammals/birds) identified</h6>
+                    <canvas id="KPI3dg1"></canvas>
                   </div>
                 </div>
               </div>
@@ -156,9 +173,14 @@
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI4_title">Quantity/quality/coverage of data in </h4>
                     <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The quantity/quality/coverage of data KPI represents the metadata about all the sightings and images uploaded. As MammalWeb “help(s) monitor wild mammals across the UK and in continental Europe”, and most classifications occur in the UK, a map of the UK which is divided into 10k cells portrays the data on the top 5 animals classified within the specified longitude square. The map is interactive and allows you to see all the animals that have been spotted in the specified area, if no sightings were seen in the specific cell no data is portrayed and you get a message explaining so. 
+
+                    For Europe there is a table depicting the number of countries with sites and the total number of sites. A site is a location at which a mammal was spotted and classified, a country appears on the table if at least one location was used within the country and the total number of sites is the total number of sites across all the countries in Europe.
+                    
+                    ">
                     </a>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr>
+                    <canvas id="KPI4g1"></canvas>
                   </div>
                 </div>
               </div>
@@ -167,9 +189,10 @@
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI5_title">Impact</h4>
                     <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The ‘Impact’ KPI represents data in retrospect to the impact that MammalWeb and its data have created in the wider community. This would include data about the number of peer-reviewed papers and citations which have used data from MammalWeb’s website. Records submitted to ERIC/NBN/GBIF are also portrayed in a table. ">
                     </a>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr>
+                    <canvas id="KPI5g1"></canvas>
                   </div>
                 </div>
               </div>
@@ -178,9 +201,10 @@
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI6_title">Funding</h4>
                     <h6 class = "description" > images for classification </h6>
-                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="Right popover">
+                    <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="MammalWeb has always been grateful for all the support and contracts they have received. The funding KPI has three specific sections, the first being the total number of grants and contracts received, over the last year. The total value of the grants received is portrayed as a line graph over the past few years and the final table portrays all the other income for MammalWeb, including advertising, sponsorship, donations and subscriptions seen in a bar chart per section. All the currencies are portrayed in GBP (£).">
                     </a>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <hr>
+                    <canvas id="KPI6g1"></canvas>
                   </div>
                 </div>
               </div>
@@ -188,6 +212,9 @@
 
   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="charts.js"></script>
 
     </body>
 </html>
