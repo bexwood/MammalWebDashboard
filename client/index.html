@@ -29,52 +29,42 @@
           var clicked = true;
           function upload(){
             if(!clicked){
+              // 
               document.getElementById("uploadwindow").innerHTML = '<div class = "card">'+
               "<p>Upload JSON file here: </p>"+
-              '<form  id = "form">'+
+              '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3000/upload" method = "POST">'+
               '  <label for="file">Select files:</label>'+
               '  <input type="file" id="file" accept=".json" name="file" multiple><br><br>'+
-              '  <input type="submit" id = "submit">'+
+              '  <input type="submit" id = "submitform">'+
               '</form>'+
               '</div>';
-              /*document.getElementById("uploadwindow").innerHTML = 
-              '<div class = "card">'+
-              '<input id="fileupload" type="file" name="fileupload" />'+
-              '<button id="upload-button" onclick="uploadFile()"> Upload </button>'+
-              '</div>';*/
             }
            else{
               document.getElementById("uploadwindow").innerHTML = "";
             }
             clicked = !clicked;
           }
-          /*
-          let form = document.querySelector('#upload');
-          let file = document.querySelector('#file');
-          form.addEventListener('submit', handleSubmit);
-          function handleSubmit (event) {
-          // Stop the form from reloading the page
-          event.preventDefault();
-          // If there's no file, do nothing
-          if (!file.value.length) return;    
-            // Create a new FileReader() object
-          let reader = new FileReader();
-          // Setup the callback event to run when the file is read
-          reader.onload = logFile;
-          // Read the file
-          reader.readAsText(file.files[0]);
-          return false;
-          }
-          function logFile (event) {
-            let str = event.target.result;
-            data = JSON.stringify(str, null, 1);
-            //data = JSON.parse(data);
-            fs.writeFile('upload.json', data, (err) => {
-              if (err) {
-                  throw err;
-              }
-            });
-          } */
+          /*const submit = document.getElementById('submitform');
+          submit.addEventListener('click', async function (event) {
+              event.preventDefault();
+              const response = await fetch('http://localhost:3000/upload', {
+                method: 'POST'
+              });
+              const body = await response.json();
+              document.getElementById('resp').innerHTML = "File submitted!";
+          });*/
+          /*async function submit() {
+              //event.preventDefault();
+              const response = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                }
+              });
+              const body = await response.json();
+              document.getElementById('resp').innerHTML = "File submitted!";
+            };*/
         </script>
 
     </head>
@@ -152,7 +142,7 @@
               </div>
             </div>
           </nav>
-          <div id = "uploadwindow"></div>
+          <div ><div id = "uploadwindow"></div><div id = "resp"></div></div>
           <div class="KPI1">
             <div class="row row-cols-1 row-cols-md-3 g-4">
               <div class="col">
