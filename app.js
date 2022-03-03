@@ -21,11 +21,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
 //start app 
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
-app.listen(port, () => 
+/*app.listen(port, () => 
   console.log(`App is listening on port ${port}.`)
-);
+);*/
 
 /* GET home page. */
 app.get('/', function(req, res) {
@@ -42,9 +42,10 @@ app.post('/upload', function (req, resp) {
       if (err) {
         resp.status(500).send(err);
       }
-      resp.send({ status: "success", path: path });
+     // resp.send({ status: "success", path: path });
+      resp.redirect('./')
     });
 });
 
 
-//module.exports = app;
+module.exports = app;
