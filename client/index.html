@@ -29,7 +29,7 @@
           var clicked = true;
           function upload(){
             if(!clicked){
-              // 
+              // action = "http://localhost:3000/upload" method = "POST"
               document.getElementById("uploadwindow").innerHTML = '<div class = "card">'+
               "<p>Upload JSON file here: </p>"+
               '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3000/upload" method = "POST">'+
@@ -44,27 +44,6 @@
             }
             clicked = !clicked;
           }
-          /*const submit = document.getElementById('submitform');
-          submit.addEventListener('click', async function (event) {
-              event.preventDefault();
-              const response = await fetch('http://localhost:3000/upload', {
-                method: 'POST'
-              });
-              const body = await response.json();
-              document.getElementById('resp').innerHTML = "File submitted!";
-          });*/
-          /*async function submit() {
-              //event.preventDefault();
-              const response = await fetch('http://localhost:3000/upload', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                  // 'Content-Type': 'application/x-www-form-urlencoded',
-                }
-              });
-              const body = await response.json();
-              document.getElementById('resp').innerHTML = "File submitted!";
-            };*/
         </script>
 
     </head>
