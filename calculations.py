@@ -199,9 +199,52 @@ isUploadedAllTime, isUploadedLastYear, isUploadedByMonth = isUploaded(yearAgo)
 classificationEventsAllTime, classificationEventsLastYear, classificationEventsByMonth = classificationEvents(yearAgo)
 species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
 
-print("KPI 1a. \nAll time:",csProvidingAllTime,"\nLast year:",csProvidingLastYear,"\nBy month:",csProvidingByMonth,"\n")
-print("KPI 1b. \nAll time:",csClassifyingAllTime,"\nLast year:",csClassifyingLastYear,"\nBy month:",csClassifyingByMonth,"\n")
-print("KPI 2a. \nAll time:",isCameraDaysAllTimes,"\nLast year:",isCameraDaysLastYear,"\nBy month:",isCameraDaysByMonth,"\n")
-print("KPI 2b. \nAll time:",isUploadedAllTime,"\nLast year:",isUploadedLastYear,"\nBy month:",isUploadedByMonth,"\n")
-print("KPI 3a. \nAll time:",classificationEventsAllTime,"\nLast year:",classificationEventsLastYear,"\nBy month:",classificationEventsByMonth,"\n")
-print("KPI 3d. \nNumber of animals identified:",numberAnimals,"\nNumber of species identified:",numberSpecies,"\nAnimals identified by species:",species,"\n")
+data = {
+    "1a" : [
+        {
+        "allTime": csProvidingAllTime,
+        "lastYear": csProvidingLastYear,
+        "byMonth": csProvidingByMonth
+        }
+    ],
+    "1b" : [
+        {
+        "allTime": csClassifyingAllTime,
+        "lastYear": csClassifyingLastYear,
+        "byMonth": csClassifyingByMonth
+        }
+    ],
+    "2a" : [
+        {
+        "allTime": isCameraDaysAllTimes,
+        "lastYear": isCameraDaysLastYear,
+        "byMonth": isCameraDaysByMonth
+        }
+    ],
+    "2b" : [
+        {
+        "allTime": isUploadedAllTime,
+        "lastYear": isUploadedLastYear,
+        "byMonth": isUploadedByMonth
+        }
+    ],
+    "3a" : [
+        {
+        "allTime": classificationEventsAllTime,
+        "lastYear": classificationEventsLastYear,
+        "byMonth": classificationEventsByMonth
+        }
+    ],   
+    "3d" : [
+        {
+        "numberAnimals": numberAnimals,
+        "numberSpecies": numberSpecies,
+        "animalsBySpecies": species
+        }
+    ] 
+}
+
+file = open('calculations.json', 'w')
+jsonString = json.dumps(data, indent=4)
+file.write(jsonString)
+file.close()
