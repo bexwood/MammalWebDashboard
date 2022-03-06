@@ -11,7 +11,7 @@
         <link id="theme" rel="stylesheet" href="./template.css">
 
         <script>
-          window.onload = 'reloadData.js'
+          window.onload = 'rerunServer.js', 'rerunCalc.js'
           var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
           var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -217,7 +217,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
         <script src="charts.js"></script>
-        <script type="module" src="reloadData.js"></script> 
+        <script type="module" src="rerunServer.js"></script> 
+        <script type="module" src="rerunCalc.js"></script> 
 
     </body>
 </html>

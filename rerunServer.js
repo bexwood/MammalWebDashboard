@@ -1,3 +1,5 @@
+console.log('rerunning server')
+
 var f = require('./server.js');
 
 f.animals();
