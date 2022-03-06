@@ -4,16 +4,16 @@
     font-style: normal;
   }
   
-  .navbar {
+.navbar {
       margin-bottom: 10px;
   }
   
-  .card {
+.card {
       margin: 1px;
       background-color: #E6E7E9;
   }
   
-  .button {
+.button {
       background-image: url(images/info-button.svg);
       background-repeat: no-repeat;
       background-size: 100% auto;
@@ -26,49 +26,56 @@
       margin: 2px;
   }
   
-  h4{ 
+h4{ 
       text-transform: uppercase;
       text-align: center;  
       font-weight: bolder;
       letter-spacing: 0.17em;
   }
   
-  .description{
+.description{
       color: #3e3e3f;
       text-transform: uppercase;
       text-align: center;  
       font-weight: 250;
   }
-  .graph{
+.graph{
       display: block;
       margin-left: auto;
       margin-right: auto;
   
   }
-  
-  #KPI1_title{
-      color: #D81B60;
-  }
-  
-  #KPI2_title{
-      color: #F7931D;
-  }
-  
-  #KPI3_title{
+
+
+#KPI1_title{
       color: #1E88E5;
+      text-shadow: 1px 1px 1px #fff;
   }
   
-  #KPI4_title{
-      color: #004D40;
-  }
-  #KPI5_title{
+#KPI2_title{
       color: #FFC107;
+      text-shadow: 1px 1px 1px #fff;
   }
-  #KPI6_title{
-      color: #3E3E3F;
+
+#KPI3_title{
+      color: #D81B60;
+      text-shadow: 1px 1px 1px #fff;
   }
   
-  .colour-change {
+#KPI4_title{
+      color: #004D40;
+      text-shadow: 1px 1px 1px #fff;
+  }
+#KPI5_title{
+      color: #F7931D;
+      text-shadow: 1px 1px 1px #fff;
+  }
+#KPI6_title{
+      color: #3E3E3F;
+      text-shadow: 1px 1px 1px #fff;
+  }
+  
+.colour-change {
       background-color: Transparent;
       font-family: "Open Sans", sans-serif;
       color: rgb(168, 168, 168);
@@ -76,10 +83,51 @@
       border: none;
     }
   
-  .colour-change:hover {
+.colour-change:hover {
       background-color: Transparent;
       color: rgb(207, 207, 207);
       padding: .55em;
       border: none;
      }
+
+  .KPItable{
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-family: "Open Sans", sans-serif;
+      text-transform: uppercase;
+      text-align: center;  
+      font-weight: bolder;
+      letter-spacing: 0.15em;
+      margin-left:auto; 
+      margin-right:auto;
+  }
   
+  #KPI1table thead th {
+      border-bottom: solid 2px #FFC107;
+      color:  #1E88E5;
+      padding: 10px;
+      text-align: left;
+      text-shadow: 1px 1px 1px #fff;
+  }
+  
+  #KPI2table thead th {
+      border-bottom: solid 2px #1E88E5;
+      color:  #FFC107;
+      padding: 10px;
+      text-align: left;
+      text-shadow: 1px 1px 1px #fff;
+  }
+  
+  
+  #KPI3table thead th {
+      border-bottom: solid 2px #FFC107;
+      color:  #D81B60;
+      padding: 10px;
+      text-align: left;
+      text-shadow: 1px 1px 1px #fff;
+  }
+  .KPItable tbody td {
+      color: #333;
+      padding: 10px;
+      text-shadow: 1px 1px 1px #fff;
+  }
