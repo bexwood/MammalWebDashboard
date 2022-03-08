@@ -31,6 +31,7 @@ h4{
     text-align: center;  
     font-weight: bolder;
     letter-spacing: 0.17em;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 .description{
@@ -48,24 +49,30 @@ h4{
 
 #KPI1_title{
     color: #F7931D;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 #KPI2_title{
     color: #E15183;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 #KPI3_title{
     color: #0C6638;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 #KPI4_title{
     color: #1d48c0;
+    text-shadow: 1px 1px 1px #fff;
 }
 #KPI5_title{
     color: #ee3f36;
+    text-shadow: 1px 1px 1px #fff;
 }
 #KPI6_title{
     color: #a10587;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 .colour-change {
@@ -82,3 +89,56 @@ h4{
     padding: .55em;
     border: none;
    }
+.KPItable{
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    text-align: center;  
+    font-weight: bolder;
+    letter-spacing: 0.15em;
+    margin-left:auto; 
+    margin-right:auto;
+}
+/* 
+#KPItable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    text-align: center;  
+    font-weight: bolder;
+    letter-spacing: 0.15em;
+    margin-left:auto; 
+    margin-right:auto;
+} */
+
+#KPI1table thead th {
+    border-bottom: solid 2px #E15183;
+    color:  #F7931D;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+#KPI2table thead th {
+    border-bottom: solid 2px #F7931D;
+    color:  #E15183;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+
+#KPI3table thead th {
+    border-bottom: solid 2px #1d48c0;
+    color:  #0C6638;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+.KPItable tbody td {
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}

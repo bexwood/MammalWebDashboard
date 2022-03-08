@@ -1,6 +1,7 @@
 import json
 import datetime  
 import re
+import os
 
 def csProvdingImages(yearAgo):
     file = open('photo.json')
@@ -186,6 +187,11 @@ def classificationAnimals(yearAgo):
 
     return species, numberSpecies, numberAnimals
 
+def deleteJSON():
+    os.remove('animal.json')
+    os.remove('photo.json')
+    os.remove('species.json')
+
 
 
 now = datetime.datetime.now()
@@ -198,6 +204,10 @@ isCameraDaysAllTimes, isCameraDaysLastYear, isCameraDaysByMonth = isCameraDays(y
 isUploadedAllTime, isUploadedLastYear, isUploadedByMonth = isUploaded(yearAgo)
 classificationEventsAllTime, classificationEventsLastYear, classificationEventsByMonth = classificationEvents(yearAgo)
 species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
+
+print('Calculation data is saved.')
+
+deleteJSON()
 
 data = {
     "1a" : [

@@ -11,6 +11,7 @@
         <link id="theme" rel="stylesheet" href="./template.css">
 
         <script>
+          window.onload = 'rerunServer.js', 'rerunCalc.js'
           var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
           var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -122,15 +123,38 @@
                     </a>
                     <hr>
                     <h6 class = "description" > images for classification </h6>
-
                     <canvas id="KPI1ag1"></canvas>
-                    <!-- <hr>
-                    <canvas id="KPI1ag2"></canvas> -->
+                    <table class = "KPItable", id="KPI1table">
+                      <thead>
+                          <tr>
+                              <th >Last Year</th>
+                              <th >All Time</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td> 
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                     <hr>
                     <h6 class = "description" > classifying images </h6>
                     <canvas id="KPI1bg1"></canvas>
-                    <!-- <hr>
-                    <canvas id="KPI1bg2"></canvas> -->
+                    <table  class = "KPItable", id="KPI1table">
+                      <thead>
+                          <tr>
+                              <th >Last Year</th>
+                              <th >All Time</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -143,13 +167,37 @@
                     <hr>
                     <h6 class = "description" > Number of camera-days</h6>
                     <canvas id="KPI2ag1"></canvas>
-                    <!-- <hr>
-                    <canvas id="KPI2ag2"></canvas> -->
+                    <table  class = "KPItable", id="KPI2table">
+                      <thead>
+                          <tr>
+                              <th >Last Year</th>
+                              <th >All Time</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td> 
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                     <hr>
                     <h6 class = "description" > Number of image sequences uploaded</h6>
                     <canvas id="KPI2bg1"></canvas>
-                    <!-- <hr>
-                    <canvas id="KPI2bg2"></canvas> -->
+                    <table class = "KPItable", id="KPI2table">
+                      <thead>
+                          <tr>
+                              <th >Last Year</th>
+                              <th >All Time</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td> 
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -162,9 +210,37 @@
                     <hr>
                     <h6 class = "description" > Number of classification "events"</h6>
                     <canvas id="KPI3ag1"></canvas>
+                    <table class = "KPItable", id="KPI3table">
+                      <thead>
+                          <tr>
+                              <th >Last Year</th>
+                              <th >All Time</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td> 
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                     <hr>
                     <h6 class = "description" > Number of animals (mammals/birds) identified</h6>
                     <canvas id="KPI3dg1"></canvas>
+                    <table class = "KPItable", id="KPI3table">
+                      <thead>
+                          <tr>
+                              <th > Nº of Animals</th>
+                              <th > Nº of Species</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                                <td >Data</td>
+                                <td >Data</td> 
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -216,6 +292,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
         <script src="charts.js"></script>
-
+        <script type="module" src="rerunServer.js"></script> 
+        <script type="module" src="rerunCalc.js"></script> 
     </body>
 </html>

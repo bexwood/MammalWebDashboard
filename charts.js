@@ -17,35 +17,37 @@ const CHART3a1 = document.getElementById('KPI3ag1').getContext('2d'); // get the
 const CHART3d1 = document.getElementById('KPI3dg1').getContext('2d'); // get the KPI1.1 canvas
 // const CHART3d2 = document.getElementById('KPI3dg2').getContext('2d'); // get the KPI1.1 canvas
 
-/* $.ajax({
-    type: "GET",
-    url: 'calculations.json',
-    dataType: 'json',
-    success: function (result) {
-        const Chart1a1 = new Chart(CHART1a1, {
-            type: 'line',
-            data: {
-                labels:  ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Number of Images for Classification',
-                    data: result["1a"]["byMonth"],
-                    backgroundColor: ['#F7931D'],
-                    borderColor:['#F7931D'],
-                    borderWidth: 1.5
-                }]
+// $.ajax({
+//     type: "GET",
+//     url: 'http://localhost/MammalWebDashboard/calculations.json',
+//     data: { get_param: 'value' },
+//     // crossDomain: true,
+//     dataType: 'json',
+//     success: function (result) {
+//         const Chart1a1 = new Chart(CHART1a1, {
+//             type: 'line',
+//             data: {
+//                 labels:  ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct', 'Nov', 'Dec'],
+//                 datasets: [{
+//                     label: 'Number of Images for Classification',
+//                     data: result["1a"]["byMonth"],
+//                     backgroundColor: ['#F7931D'],
+//                     borderColor:['#F7931D'],
+//                     borderWidth: 1.5
+//                 }]
                
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                }
-            }
-        });
-    }
-}) */
+//             },
+//             options: {
+//                 responsive: true,
+//                 plugins: {
+//                     legend: {
+//                         position: 'top',
+//                     },
+//                 }
+//             }
+//         });
+//     }
+// }) 
 
 
 

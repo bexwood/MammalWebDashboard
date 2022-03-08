@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var exports = module.exports = {};
 
 var con = mysql.createConnection({
     host: "mammalwebdb.ccrk30vfkswu.eu-west-2.rds.amazonaws.com",
@@ -37,17 +38,17 @@ function pull_data(sql_query, filename) {
 
 // Functions to create JSON files:
 
-function animalsFile(){
+exports.animals = function animalsFile(){
   sql_query = 'SELECT person_id, timestamp, species FROM mammalWeb.Animal';
   pull_data(sql_query, 'animal.json');
 }
 
-function photoFile(){
+exports.photo = function photoFile(){
   sql_query = 'SELECT person_id, taken, sequence_num FROM mammalWeb.Photo6';
   pull_data(sql_query, 'photo.json');
 }
 
-function speciesFile(){
+exports.species = function speciesFile(){
   sql_query = 'SELECT option_id, option_name FROM mammalWeb.Options';
   pull_data(sql_query, 'species.json');
 }
@@ -96,7 +97,7 @@ function addFile(filename){
 
 //Run functions to create the JSON files
 
-animalsFile()
-photoFile()
-speciesFile()
+//animalsFile()
+//photoFile()
+//speciesFile()
 //addFile('file2.json')
