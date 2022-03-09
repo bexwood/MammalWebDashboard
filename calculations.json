@@ -1,0 +1,225 @@
+{
+    "1a": [
+        {
+            "allTime": 12,
+            "lastYear": 9,
+            "byMonth": [
+                0,
+                0,
+                9,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "1b": [
+        {
+            "allTime": 36,
+            "lastYear": 0,
+            "byMonth": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "2a": [
+        {
+            "allTime": 11728,
+            "lastYear": 5891,
+            "byMonth": [
+                0,
+                0,
+                5891,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "2b": [
+        {
+            "allTime": 10083,
+            "lastYear": 5959,
+            "byMonth": [
+                0,
+                0,
+                5959,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "3a": [
+        {
+            "allTime": 17959,
+            "lastYear": 0,
+            "byMonth": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "3d": [
+        {
+            "numberAnimals": 17949,
+            "numberSpecies": 23,
+            "animalsBySpecies": [
+                [
+                    10,
+                    226,
+                    "Badger"
+                ],
+                [
+                    11,
+                    79,
+                    "Blackbird (Eurasian)"
+                ],
+                [
+                    12,
+                    3,
+                    "Domestic cat"
+                ],
+                [
+                    13,
+                    1,
+                    "Carrion crow"
+                ],
+                [
+                    14,
+                    21,
+                    "Domestic dog"
+                ],
+                [
+                    16,
+                    152,
+                    "Grey squirrel"
+                ],
+                [
+                    19,
+                    26,
+                    "Magpie (Eurasian)"
+                ],
+                [
+                    20,
+                    685,
+                    "Rabbit"
+                ],
+                [
+                    21,
+                    106,
+                    "Red fox"
+                ],
+                [
+                    22,
+                    12035,
+                    "Roe deer"
+                ],
+                [
+                    24,
+                    6,
+                    "Woodpigeon"
+                ],
+                [
+                    35,
+                    2,
+                    "Brown (European) hare"
+                ],
+                [
+                    36,
+                    3,
+                    "Hedgehog (Western)"
+                ],
+                [
+                    37,
+                    55,
+                    "Pheasant (common)"
+                ],
+                [
+                    39,
+                    8,
+                    "Red deer"
+                ],
+                [
+                    42,
+                    83,
+                    "Small rodent (unknown species)"
+                ],
+                [
+                    44,
+                    11,
+                    "Pine marten"
+                ],
+                [
+                    86,
+                    2762,
+                    "Nothing"
+                ],
+                [
+                    87,
+                    806,
+                    "Human"
+                ],
+                [
+                    95,
+                    51,
+                    "Other"
+                ],
+                [
+                    96,
+                    765,
+                    "Don't Know"
+                ],
+                [
+                    97,
+                    60,
+                    "Like"
+                ],
+                [
+                    159,
+                    3,
+                    "Otter"
+                ]
+            ]
+        }
+    ]
+}
