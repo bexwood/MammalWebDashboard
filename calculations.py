@@ -205,8 +205,6 @@ isUploadedAllTime, isUploadedLastYear, isUploadedByMonth = isUploaded(yearAgo)
 classificationEventsAllTime, classificationEventsLastYear, classificationEventsByMonth = classificationEvents(yearAgo)
 species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
 
-print('Calculation data is saved.')
-
 deleteJSON()
 
 data = {
@@ -258,3 +256,5 @@ file = open('calculations.json', 'w')
 jsonString = json.dumps(data, indent=4)
 file.write(jsonString)
 file.close()
+
+print('Calculation data is saved.')
