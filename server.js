@@ -44,7 +44,7 @@ exports.animals = function animalsFile(){
 }
 
 exports.photo = function photoFile(){
-  sql_query = 'SELECT person_id, taken, sequence_num FROM mammalWeb.Photo6';
+  sql_query = 'SELECT person_id, taken, sequence_num FROM mammalWeb.Photo';
   pull_data(sql_query, 'photo.json');
 }
 
