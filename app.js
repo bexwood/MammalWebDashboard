@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const _ = require('lodash');
 const fileUpload = require('express-fileupload');
 
-app.use(express.static('client'));
+//app.use(express.static('client'));
 app.use(express.json());
 app.use(fileUpload({
   createParentPath: true
@@ -28,15 +28,25 @@ app.use(morgan('dev'));
 );*/
 
 /* GET home page. */
+app.use(express.static(`${__dirname}`));
 app.get('/', function(req, res) {
-    res.render('index', { title: 'Express' });
+    //res.render('index', { title: 'Express' });
+    //res.sendFile('./Template.html');
+    res.sendFile(`${__dirname}/Template.html`, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err.message);
+    }
+    });
   });
+  
 app.post('/upload', function (req, resp) {
   if (!req.files) {
     return resp.status(400).send("No files were uploaded.");
   }
     let file = req.files.file;
-    let path = 'uploads/' + file.name;
+    //let path = 'uploads/' + file.name;
+    let path = 'uploads/uploadData.json'; 
   
     file.mv(path, (err) => {
       if (err) {

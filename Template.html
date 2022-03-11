@@ -38,6 +38,17 @@
             }
         }
 
+          function upload(){
+              document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
+              "<p>Upload JSON file here: </p>"+
+              '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3000/upload" method = "POST">'+
+              '  <label for="file">Select files:</label>'+
+              '  <input type="file" id="file" accept=".json" name="file" multiple><br><br>'+
+              '  <input type="submit" id = "submitform" >'+
+              '</form>'+
+              '</div>';
+          }
+
         </script>
 
     </head>
@@ -108,10 +119,15 @@
                   <li class="nav-item">
                     <button class="colour-change" onclick="toggleTheme()">CHANGE COLOUR</button>
                   </li>
+                  <li class="nav-item">
+                    <button class="colour-change" id = "upload" onclick = "upload()" >UPLOAD</button>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
+
+          <div ><div id = "uploadWindow"></div>
 
           <div class="KPI1">
             <div class="row row-cols-1 row-cols-md-3 g-4">
