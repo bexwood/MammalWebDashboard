@@ -515,13 +515,16 @@
             function upload(){
               document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
               "<p>Upload JSON file here: </p>"+
-              '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3389/upload" method = "POST">'+
+              '<form  id = "form" enctype="multipart/form-data" action = "/upload" method = "POST">'+
               '  <label for="file">Select files:</label>'+
               '  <input type="file" id="file" accept=".json" name="file" multiple><br><br>'+
-              '  <input type="submit" id = "submitform" >'+
+              '  <input type="submit" id = "submitform" onclick = min()>'+
               '</form>'+
               '</div>';
           }
+            function min(){
+              document.getElementById("uploadWindow").innerHTML ="";
+            }
 
         </script>
 
