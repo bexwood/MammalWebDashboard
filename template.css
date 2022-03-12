@@ -91,6 +91,22 @@ h4{
     padding: .55em;
     border: none;
    }
+
+.colour-change2 {
+    background-color: Transparent;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(62,62,63);
+    padding: .55em;
+    border: none;
+  }
+
+.colour-change2:hover {
+    background-color: Transparent;
+    color: rgb(247,147,29);
+    padding: .55em;
+    border: none;
+   }
+
 .KPItable{
     border-collapse: collapse;
     border-spacing: 0;
@@ -168,7 +184,6 @@ h4{
 #uploadWindow{
   padding-left: 10px;
 }
-
 
 .site-footer {
     background-color: #3e3e3f;
