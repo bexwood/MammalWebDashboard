@@ -8,49 +8,8 @@
 
         <!--Bootstrap CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link id="theme" rel="stylesheet" href="./template.css">
-
-        <script>
-          window.onload = 'rerunServer.js', 'rerunCalc.js'
-          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-          })
-          
-          document.addEventListener("DOMContentLoaded", function(){
-            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-            var popoverList = popoverTriggerList.map(function(element){
-              return new bootstrap.Popover(element);
-            });
-          });
-
-          var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-            trigger: 'focus'
-          })
-          
-          function toggleTheme() {
-            var theme = document.getElementsByTagName('link')[1];
-
-            if (theme.getAttribute('href') == './template.css') {
-                theme.setAttribute('href', './alt_template.css');
-            } else {
-                theme.setAttribute('href', './template.css');
-            }
-        }
-
-          function upload(){
-              document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
-              "<p>Upload JSON file here: </p>"+
-              '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3000/upload" method = "POST">'+
-              '  <label for="file">Select files:</label>'+
-              '  <input type="file" id="file" accept=".json" name="file" multiple><br><br>'+
-              '  <input type="submit" id = "submitform" >'+
-              '</form>'+
-              '</div>';
-          }
-
-        </script>
-
     </head>
     <body>
         <!--Navbar-->
@@ -127,7 +86,10 @@
             </div>
           </nav>
 
-          <div ><div id = "uploadWindow"></div>
+          <div ><div id = "uploadWindow" class = image></div>
+            <img src="./images/TitleImg.png" height = 150 width = 600 >
+          <div id = title-top>
+          </div>
 
           <div class="KPI1">
             <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -148,8 +110,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td> 
+                              <td id="KPI1_lastYear">Data</td>
+                              <td id="KPI1_allTime" >Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -165,8 +127,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td>
+                              <td id="KPI1b_lastYear">Data</td>
+                              <td id="KPI1b_allTime">Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -191,8 +153,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td> 
+                              <td id="KPI2a_lastYear">Data</td>
+                              <td id="KPI2a_allTime">Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -208,8 +170,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td> 
+                              <td id="KPI2b_lastYear">Data</td>
+                              <td id="KPI2b_allTime">Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -234,8 +196,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td> 
+                              <td id="KPI3a_lastYear">Data</td>
+                              <td id="KPI3a_allTime">Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -251,8 +213,8 @@
                           </tr>
                           <tbody>
                             <tr>
-                                <td >Data</td>
-                                <td >Data</td> 
+                              <td id="KPI3d_NoAnimals">Data</td>
+                              <td id="KPI3d_NoSpecies">Data</td>
                             </tr>
                           </tbody>
                       </thead>
@@ -264,7 +226,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI4_title">Quantity/quality/coverage of data in </h4>
-                    <h6 class = "description" > images for classification </h6>
+                    <h6 class = "description" > UK number and proportion of 10k cells for which we have some records </h6>
                     <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The quantity/quality/coverage of data KPI represents the metadata about all the sightings and images uploaded. As MammalWeb “help(s) monitor wild mammals across the UK and in continental Europe”, and most classifications occur in the UK, a map of the UK which is divided into 10k cells portrays the data on the top 5 animals classified within the specified longitude square. The map is interactive and allows you to see all the animals that have been spotted in the specified area, if no sightings were seen in the specific cell no data is portrayed and you get a message explaining so. 
 
                     For Europe there is a table depicting the number of countries with sites and the total number of sites. A site is a location at which a mammal was spotted and classified, a country appears on the table if at least one location was used within the country and the total number of sites is the total number of sites across all the countries in Europe.
@@ -272,7 +234,75 @@
                     ">
                     </a>
                     <hr>
-                    <canvas id="KPI4g1"></canvas>
+
+                    <table class = "KPItable", id="KPI4table">
+                      <thead>
+                          <tr>
+                              <th > Nº</th>
+                              <th > Proportion</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI4ai_number">Data</td>
+                              <td id="KPI4ai_proportion">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" > UK number and proportion of 10k cells for which we reach an asymptote of species (no new species in N records)
+                    </h6>
+
+                    <table class = "KPItable", id="KPI4table">
+                      <thead>
+                          <tr>
+                            <th > Nº</th>
+                            <th > Proportion</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI4aii_number">Data</td>
+                              <td id="KPI4aii_proportion">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" > Europe: number of countries with sites
+                    </h6>
+
+                    <table class = "KPItable", id="KPI4table">
+                      <thead>
+                          <tr>
+                            <th > Nº</th>
+                            <th > Proportion</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI4bi_number">Data</td>
+                              <td id="KPI4bi_proportion">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" > Europe: number of sites
+                    </h6>
+
+                    <table class = "KPItable", id="KPI4table">
+                      <thead>
+                          <tr>
+                            <th > Nº</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI4bii_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+
+
                   </div>
                 </div>
               </div>
@@ -280,11 +310,87 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" id = "KPI5_title">Impact</h4>
-                    <h6 class = "description" > images for classification </h6>
+                    <h6 class = "description" > Number of peer-reviewed papers using data from MammalWeb </h6>
                     <a tabindex="0" type="button" class="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="right" data-bs-content="The ‘Impact’ KPI represents data in retrospect to the impact that MammalWeb and its data have created in the wider community. This would include data about the number of peer-reviewed papers and citations which have used data from MammalWeb’s website. Records submitted to ERIC/NBN/GBIF are also portrayed in a table. ">
                     </a>
                     <hr>
-                    <canvas id="KPI5g1"></canvas>
+                    <table class = "KPItable", id="KPI5table">
+                      <thead>
+                          <tr>
+                            <th > Nº of peer-reviewed papers</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI5a_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" >Number of citations of MammalWeb articles
+                    </h6>
+                    <table class = "KPItable", id="KPI5table">
+                      <thead>
+                          <tr>
+                            <th > Nº of citations</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI5b_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" >Citations/uses of MammalWeb data for policy or management: dois?
+
+                    </h6>
+                    <table class = "KPItable", id="KPI5table">
+                      <thead>
+                          <tr>
+                            <th > Nº of citations for policy or management</th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI5c_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+
+                    <hr>
+                    <h6 class = "description" > Records submitted to ERIC/NBN/GBIF
+
+                    </h6>
+                    <table class = "KPItable", id="KPI5table">
+                      <thead>
+                          <tr>
+                            <th > Nº [ERIC/NBN/GBIF] </th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI5d_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" >Web-site hits for data reporting
+
+                    </h6>
+                    <table class = "KPItable", id="KPI5table">
+                      <thead>
+                          <tr>
+                            <th >  Nº of web-site hits for data reporting </th>
+                          </tr>
+                          <tbody>
+                            <tr>
+                              <td id="KPI5e_number">Data</td>
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+
                   </div>
                 </div>
               </div>
@@ -299,30 +405,127 @@
                     <table  class = "KPItable", id="KPI6table">
                       <thead>
                           <tr>
-                              <th > Last year </th>
-                              <th > All Time </th>
+                              <th > Nº of grants and contracts </th>
+                              <th > Total value of grants/contracts </th>
+
                           </tr>
                           <tbody>
                             <tr>
-                                <td > 2 </td>
-                                <td > 235 </td>
+                              <td id="KPI6_number"> DATA </td>
+                              <td id="KPI6_total" > DATA </td>
+
+                            </tr>
+                          </tbody>
+                      </thead>
+                    </table>
+                    <hr>
+                    <h6 class = "description" > OTHER </h6>
+
+                    <table  class = "KPItable", id="KPI6table">
+                      <thead>
+                          <tr>
+
+                              <th > Other income </th>
+
+                          </tr>
+                          <tbody>
+                            <tr>
+
+                              <td id="KPI6_other" > DATA </td>
+
                             </tr>
                           </tbody>
                       </thead>
                     </table>
                   </div>
+                
                 </div>
               </div>
-            </div>
+              <div class = separate >
 
-  
+              </div>
+            </div>
+          </div>
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+
+            document.addEventListener("DOMContentLoaded", function(){
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+                var popoverList = popoverTriggerList.map(function(element){
+                    return new bootstrap.Popover(element);
+                });
+            });
+
+            // var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+            //     trigger: 'focus'
+            // })
+
+            function toggleTheme() {
+                var theme = document.getElementsByTagName('link')[1];
+                let color = ["#F7931D", "#E15183","#0C6638","#1d48c0","#ee3f36","#a10587"];
+                if (theme.getAttribute('href') === './template.css') {
+                    theme.setAttribute('href', './alt_template.css');
+                    color = ["#1E88E5", "#FFC107", "#D81B60","#004D40","#F7931D","#3E3E3F" ];
+                    Chart1a1.data.datasets[0].backgroundColor = color[0];
+                    Chart1b1.data.datasets[0].backgroundColor = color[0];
+                    Chart2a1.data.datasets[0].backgroundColor = color[1];
+                    Chart2b1.data.datasets[0].backgroundColor = color[1];
+                    Chart3a1.data.datasets[0].backgroundColor = color[2];
+                    Chart3d1.data.datasets[0].backgroundColor = color[2];
+                    Chart1a1.data.datasets[0].borderColor = color[0];
+                    Chart1b1.data.datasets[0].borderColor = color[0];
+                    Chart2a1.data.datasets[0].borderColor = color[1];
+                    Chart2b1.data.datasets[0].borderColor = color[1];
+                    Chart3a1.data.datasets[0].borderColor = color[2];
+                    Chart3d1.data.datasets[0].borderColor = color[2];
+
+                } else {
+                    theme.setAttribute('href', './template.css');
+                    color = ["#F7931D", "#E15183","#0C6638","#1d48c0","#ee3f36","#a10587"];
+
+                    Chart1a1.data.datasets[0].backgroundColor = color[0];
+                    Chart1b1.data.datasets[0].backgroundColor = color[0];
+                    Chart2a1.data.datasets[0].backgroundColor = color[1];
+                    Chart2b1.data.datasets[0].backgroundColor = color[1];
+                    Chart3a1.data.datasets[0].backgroundColor = color[2];
+                    Chart3d1.data.datasets[0].backgroundColor = color[2];
+                    Chart1a1.data.datasets[0].borderColor = color[0];
+                    Chart1b1.data.datasets[0].borderColor = color[0];
+                    Chart2a1.data.datasets[0].borderColor = color[1];
+                    Chart2b1.data.datasets[0].borderColor = color[1];
+                    Chart3a1.data.datasets[0].borderColor = color[2];
+                    Chart3d1.data.datasets[0].borderColor = color[2];
+                }
+
+                Chart1a1.update();
+                Chart1b1.update();
+                Chart2a1.update();
+                Chart2b1.update();
+                Chart3a1.update();
+                Chart3d1.update();
+            }
+            function upload(){
+              document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
+              "<p>Upload JSON file here: </p>"+
+              '<form  id = "form" enctype="multipart/form-data" action = "http://localhost:3389/upload" method = "POST">'+
+              '  <label for="file">Select files:</label>'+
+              '  <input type="file" id="file" accept=".json" name="file" multiple><br><br>'+
+              '  <input type="submit" id = "submitform" >'+
+              '</form>'+
+              '</div>';
+          }
+
+        </script>
 
         <script src="charts.js"></script>
-        <script type="module" src="rerunServer.js"></script> 
-        <script type="module" src="rerunCalc.js"></script> 
     </body>
     <!-- from https://codepen.io/scanfcode/pen/MEZPNd -->
     <footer class="site-footer">
@@ -358,7 +561,6 @@
             <p class="copyright-text">Copyright &copy; ... All Rights Reserved by 
          <a href="#">MammalWeb</a>.
             </p>
-
         </div>
       </div>
 </footer>

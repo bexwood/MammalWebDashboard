@@ -10,7 +10,7 @@ var con = mysql.createConnection({
   });
 
 
-function pull_data(sql_query, filename) { 
+function pull_data(sql_query, filename) {
   con.connect(function(err) {
       if (err) throw err;});
   con.query(sql_query, function (err, result, fields) {
@@ -25,14 +25,14 @@ function pull_data(sql_query, filename) {
         console.log("JSON data is saved.");
   });
   con.end();
-  
+
          //  reconnect in order to prevent the"Cannot enqueue Handshake after invoking quit"
   con = mysql.createConnection({
           host: "mammalwebdb.ccrk30vfkswu.eu-west-2.rds.amazonaws.com",
           user: "admin",
           password: "MammalWebAdminDB",
           database: "mammalWeb"
-        });    
+        });
 };
 
 

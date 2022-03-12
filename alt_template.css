@@ -102,37 +102,63 @@ h4{
       margin-right:auto;
   }
   
-  #KPI1table thead th {
+#KPI1table thead th {
       border-bottom: solid 2px #FFC107;
       color:  #1E88E5;
       padding: 10px;
       text-align: left;
       text-shadow: 1px 1px 1px #fff;
-  }
+}
   
-  #KPI2table thead th {
+#KPI2table thead th {
       border-bottom: solid 2px #1E88E5;
       color:  #FFC107;
       padding: 10px;
       text-align: left;
       text-shadow: 1px 1px 1px #fff;
-  }
+}
   
   
-  #KPI3table thead th {
+#KPI3table thead th {
       border-bottom: solid 2px #FFC107;
       color:  #D81B60;
       padding: 10px;
       text-align: left;
       text-shadow: 1px 1px 1px #fff;
-  }
-  .KPItable tbody td {
+}
+  
+#KPI4table thead th {
+    border-bottom: solid 2px #FFC107;
+    color:  #D81B60;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+  
+#KPI5table thead th {
+    border-bottom: solid 2px #1E88E5;
+    color:  #FFC107;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+
+#KPI6table thead th {
+    border-bottom: solid 2px #FFC107;
+    color:  #D81B60;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.KPItable tbody td {
       color: #333;
       padding: 10px;
       text-shadow: 1px 1px 1px #fff;
-  }
+}
 
-  #home{
+#home{
     color: rgb(168, 168, 168);
 }
 

@@ -2,6 +2,10 @@ console.log('rerunning server')
 
 var f = require('./server.js');
 
-f.animals();
-f.photo();
-f.species();
+exports.rerunServer = async function rerun() {
+    console.log('Pulling new data');
+    await f.animals();
+    await f.photo();
+    await f.species();
+    console.log('Pulled new data');
+}

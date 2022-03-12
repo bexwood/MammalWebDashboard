@@ -6,8 +6,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const _ = require('lodash');
 const fileUpload = require('express-fileupload');
+const rc = require("./rerunCalc");
+const rs = require("./rerunServer");
 
-//app.use(express.static('client'));
 app.use(express.json());
 app.use(fileUpload({
   createParentPath: true
@@ -20,10 +21,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
-//start app 
+//start app
 //const port = process.env.PORT || 3000;
 
-/*app.listen(port, () => 
+/*app.listen(port, () =>
   console.log(`App is listening on port ${port}.`)
 );*/
 
@@ -39,15 +40,27 @@ app.get('/', function(req, res) {
     }
     });
   });
-  
+
+app.get('/data', async (req, res) => {
+  await rs.rerunServer();
+  await rc.rerunCalc();
+
+  res.send(fs.readFileSync('calculations.json').toString('utf8'));
+})
+app.get('/dataUpload', async (req, res) => {
+  await rs.rerunServer();
+  await rc.rerunCalc();
+
+  res.send(fs.readFileSync('./uploads/uploadData.json').toString('utf8'));
+})
+
 app.post('/upload', function (req, resp) {
   if (!req.files) {
     return resp.status(400).send("No files were uploaded.");
   }
     let file = req.files.file;
-    //let path = 'uploads/' + file.name;
-    let path = 'uploads/uploadData.json'; 
-  
+    let path = 'uploads/uploadData.json';
+
     file.mv(path, (err) => {
       if (err) {
         resp.status(500).send(err);
