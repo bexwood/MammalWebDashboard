@@ -48,9 +48,6 @@ app.get('/data', async (req, res) => {
   res.send(fs.readFileSync('calculations.json').toString('utf8'));
 })
 app.get('/dataUpload', async (req, res) => {
-  await rs.rerunServer();
-  await rc.rerunCalc();
-
   res.send(fs.readFileSync('./uploads/uploadData.json').toString('utf8'));
 })
 
