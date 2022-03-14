@@ -20,7 +20,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
-
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 //start app
 //const port = process.env.PORT || 3000;
 
