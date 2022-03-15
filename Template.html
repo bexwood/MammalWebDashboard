@@ -509,7 +509,8 @@
                 Chart3d1.update();
             }
             function upload(){
-              document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
+              if(document.getElementById("uploadWindow").innerHTML == ""){
+                document.getElementById("uploadWindow").innerHTML = '<div class = "card">'+
               "<p>Upload JSON file here: </p>"+
               '<form  id = "form" enctype="multipart/form-data" action = "/upload" method = "POST">'+
               '  <label for="file">Select files:</label>'+
@@ -517,10 +518,11 @@
               '  <input type="submit" id = "submitform" onclick = min()>'+
               '</form>'+
               '</div>';
+              }
+              else{
+                document.getElementById("uploadWindow").innerHTML = "";
+              }
           }
-            function min(){
-              document.getElementById("uploadWindow").innerHTML ="";
-            }
 
         </script>
 
