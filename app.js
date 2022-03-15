@@ -43,8 +43,8 @@ app.get('/', function(req, res) {
   });
 
 app.get('/data', async (req, res) => {
+  await rs.rerunServer();
   await rc.rerunCalc();
-
   res.send(fs.readFileSync('calculations.json').toString('utf8'));
 })
 
