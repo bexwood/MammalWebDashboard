@@ -169,7 +169,6 @@ const Chart3d1 = new Chart(CHART3d1, {
     }
 });
 
-
 fetch('http://localhost:3389/data')
     .then(x => x.json())
     .then(x => {

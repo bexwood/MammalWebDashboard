@@ -1,10 +1,11 @@
 console.log('rerunning calculations')
 
-var child_process = require('child_process');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 exports.rerunCalc = async function rerun() {
     console.log('Starting calculations');
-    const result = (await child_process.exec('python calculations.py'));
+    const result = (await exec('python calculations.py'));
     console.log('Finished calculations');
     return result;
 }

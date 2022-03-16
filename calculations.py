@@ -207,7 +207,7 @@ species, numberSpecies, numberAnimals = classificationAnimals(yearAgo)
 
 print('Calculation data is saved.')
 
-deleteJSON()
+#deleteJSON()
 
 data = {
     "1a" : [
