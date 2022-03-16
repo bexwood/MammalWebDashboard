@@ -1,41 +1,81 @@
 
 .opensans {
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-  }
-  
-.centre{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
 }
-#titleImg{
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.card {
+    margin: 1px;
+    background-color: #E6E7E9;
+}
+#home{
+    color: rgb(168, 168, 168);
+}
+.button {
+    background-image: url(images/info-button.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border: none;
+    position:absolute;
+    top: 5px;
+    right: 5px;
+    height: 15px;
+    width: 15px;
+    margin: 2px;
+}
+
+h4{ 
+  text-transform: uppercase;
+  text-align: center;  
+  font-weight: bolder;
+  letter-spacing: 0.17em;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+.description{
+  color: #3e3e3f;
+  text-transform: uppercase;
+  text-align: center;  
+  font-weight: 250;
+}
+.graph{
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-.navbar {
-      margin-bottom: 10px;
-  }
-  
-.card {
-      margin: 1px;
-      background-color: #E6E7E9;
-  }
-  
-.button {
-      background-image: url(images/info-button.svg);
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      border: none;
-      position:absolute;
-      top: 5px;
-      right: 5px;
-      height: 15px;
-      width: 15px;
-      margin: 2px;
-  }
 
+}
+
+#KPI1_title{
+  color: #1E88E5;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+#KPI2_title{
+  color: #FFC107;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+#KPI3_title{
+  color: #D81B60;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+#KPI4_title{
+color: #F7931D;
+text-shadow: 1px 1px 1px #fff;
+}
+#KPI5_title{
+color: #004D40;
+text-shadow: 1px 1px 1px #fff;
+}
+#KPI6_title{
+color: #3E3E3F;
+text-shadow: 1px 1px 1px #fff;
+}
 
 .colour-change {
     background-color: Transparent;
@@ -85,85 +125,11 @@
 
    }
 
-h4{ 
-      text-transform: uppercase;
-      text-align: center;  
-      font-weight: bolder;
-      letter-spacing: 0.17em;
-  }
-  
-.description{
-      color: #3e3e3f;
-      text-transform: uppercase;
-      text-align: center;  
-      font-weight: 250;
-  }
-.graph{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-  
-  }
-
-
-#KPI1_title{
-      color: #1E88E5;
-      text-shadow: 1px 1px 1px #fff;
-  }
-  
-#KPI2_title{
-      color: #FFC107;
-      text-shadow: 1px 1px 1px #fff;
-  }
-
-#KPI3_title{
-      color: #D81B60;
-      text-shadow: 1px 1px 1px #fff;
-  }
-  
-  #KPI4_title{
-    color: #F7931D;
-    text-shadow: 1px 1px 1px #fff;
+.centre{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-#KPI5_title{
-    color: #004D40;
-    text-shadow: 1px 1px 1px #fff;
-}
-#KPI6_title{
-    color: #3E3E3F;
-    text-shadow: 1px 1px 1px #fff;
-}
-
-.colour-change {
-      background-color: Transparent;
-      font-family: "Open Sans", sans-serif;
-      color: rgb(168, 168, 168);
-      padding: .55em;
-      border: none;
-    }
-  
-.colour-change:hover {
-      background-color: Transparent;
-      color: rgb(207, 207, 207);
-      padding: .55em;
-      border: none;
-     }
-
-.colour-change2 {
-      background-color: Transparent;
-      font-family: "Open Sans", sans-serif;
-      color: rgb(62,62,63);
-      padding: .55em;
-      border: none;
-    }
-  
-  .colour-change2:hover {
-      background-color: Transparent;
-      color: rgb(247,147,29);
-      padding: .55em;
-      border: none;
-    }
-
 .KPItable{
       border-collapse: collapse;
       border-spacing: 0;
@@ -175,6 +141,11 @@ h4{
       margin-left:auto; 
       margin-right:auto;
   }
+.KPItable tbody td {
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
   
 #KPI1table thead th {
       border-bottom: solid 2px #FFC107;
@@ -199,9 +170,7 @@ h4{
       padding: 10px;
       text-align: left;
       text-shadow: 1px 1px 1px #fff;
-}
-  
-  
+} 
 #KPI4table thead th {
   border-bottom: solid 2px #D81B60;
   color:  #F7931D;
@@ -209,7 +178,6 @@ h4{
   text-align: left;
   text-shadow: 1px 1px 1px #fff;
 }
-
 #KPI5table thead th {
   border-bottom: solid 2px #FFC107;
   color:  #004D40;
@@ -218,7 +186,6 @@ h4{
   text-shadow: 1px 1px 1px #fff;
 }
 
-
 #KPI6table thead th {
   border-bottom: solid 2px #004D40;
   color:  #3E3E3F;
@@ -226,16 +193,23 @@ h4{
   text-align: left;
   text-shadow: 1px 1px 1px #fff;
 }
-
-.KPItable tbody td {
-      color: #333;
-      padding: 10px;
-      text-shadow: 1px 1px 1px #fff;
+.separate{
+  padding:45px
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-#home{
-    color: rgb(168, 168, 168);
+.img {
+  height: auto; 
+  width: auto; 
+  /* max-width: 100%;
+  max-height: 100%; */
 }
+
 
 #uploadWindow{
   padding-left: 10px;
