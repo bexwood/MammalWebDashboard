@@ -83,6 +83,10 @@ h4{
     color: rgb(168, 168, 168);
     padding: .55em;
     border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
   }
 
 .colour-change:hover {
@@ -90,6 +94,10 @@ h4{
     color: rgb(207, 207, 207);
     padding: .55em;
     border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
    }
 
 .colour-change2 {
@@ -98,6 +106,11 @@ h4{
     color: rgb(62,62,63);
     padding: .55em;
     border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    
   }
 
 .colour-change2:hover {
@@ -105,8 +118,18 @@ h4{
     color: rgb(247,147,29);
     padding: .55em;
     border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
    }
 
+.centre{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .KPItable{
     border-collapse: collapse;
     border-spacing: 0;
@@ -172,6 +195,13 @@ h4{
 }
 .separate{
   padding:45px
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .img {
