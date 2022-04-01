@@ -32,7 +32,16 @@ def csProvdingImages(yearAgo):
 
         if i["person_id"] not in byMonthScientists[date.month-1] and yearAgo<date:
             byMonthScientists[date.month-1].append(i["person_id"])
-            byMonth[date.month-1] += 1
+            if yearAgo.year == date.year:
+                for i in range(abs((yearAgo.month-1) - date.month),12):
+                    byMonth[i] += 1
+            else:
+                for i in range((12-yearAgo.month-1)+(abs((yearAgo.month-1) - date.month)),12):
+                    byMonth[i] += 1
+
+    preLastYear = allTime - lastYear
+    for i in range(0,12):
+        byMonth[i]+=preLastYear
 
     file.close()
     return allTime, lastYear, byMonth
@@ -66,7 +75,16 @@ def csClassifyingImages(yearAgo):
          
         if i["person_id"] not in byMonthScientists[date.month-1] and yearAgo<date:
             byMonthScientists[date.month-1].append(i["person_id"])
-            byMonth[date.month-1] += 1
+            if yearAgo.year == date.year:
+                for i in range(abs((yearAgo.month-1) - date.month),12):
+                    byMonth[i] += 1
+            else:
+                for i in range((12-yearAgo.month-1)+(abs((yearAgo.month-1) - date.month)),12):
+                    byMonth[i] += 1
+
+    preLastYear = allTime - lastYear
+    for i in range(0,12):
+        byMonth[i]+=preLastYear
 
     file.close()
     return allTime, lastYear, byMonth
@@ -100,7 +118,16 @@ def isCameraDays(yearAgo):
         
         if date not in byMonthDates[date.month-1] and yearAgo<date:
             byMonthDates[date.month-1].append(date)
-            byMonth[date.month-1] += 1
+            if yearAgo.year == date.year:
+                for i in range(abs((yearAgo.month-1) - date.month),12):
+                    byMonth[i] += 1
+            else:
+                for i in range((12-yearAgo.month-1)+(abs((yearAgo.month-1) - date.month)),12):
+                    byMonth[i] += 1
+
+    preLastYear = allTime - lastYear
+    for i in range(0,12):
+        byMonth[i]+=preLastYear
 
     file.close()
     return allTime, lastYear, byMonth
@@ -126,8 +153,16 @@ def isUploaded(yearAgo):
 
         if i["sequence_num"] == 1 and yearAgo<date:
             lastYear += 1 
-            byMonth[date.month-1] += 1
+            if yearAgo.year == date.year:
+                for i in range(abs((yearAgo.month-1) - date.month),12):
+                    byMonth[i] += 1
+            else:
+                for i in range((12-yearAgo.month-1)+(abs((yearAgo.month-1) - date.month)),12):
+                    byMonth[i] += 1
         
+    preLastYear = allTime - lastYear
+    for i in range(0,12):
+        byMonth[i]+=preLastYear
 
     file.close()
     return allTime, lastYear, byMonth
@@ -152,7 +187,17 @@ def classificationEvents(yearAgo):
 
         if yearAgo<date:
             lastYear += 1 
-            byMonth[date.month-1] += 1
+            if yearAgo.year == date.year:
+                for i in range(abs((yearAgo.month-1) - date.month),12):
+                    byMonth[i] += 1
+            else:
+                for i in range((12-yearAgo.month-1)+(abs((yearAgo.month-1) - date.month)),12):
+                    byMonth[i] += 1
+
+    preLastYear = allTime - lastYear
+    for i in range(0,12):
+        byMonth[i]+=preLastYear
+
 
     file.close()
     return allTime, lastYear, byMonth
@@ -197,6 +242,7 @@ def deleteJSON():
 now = datetime.datetime.now()
 year = datetime.timedelta(days = 365)
 yearAgo = now-year
+yearAgo=yearAgo.replace(day=1, month=now.month+1) #prevents current month last year and current month this year from combining
 
 csProvidingAllTime, csProvidingLastYear, csProvidingByMonth = csProvdingImages(yearAgo)
 csClassifyingAllTime, csClassifyingLastYear, csClassifyingByMonth  = csClassifyingImages(yearAgo)

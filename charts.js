@@ -255,7 +255,7 @@ fetch('http://localhost:3389/dataUpload')
 const rotateLabels = () => {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    for (let i = 0; i < new Date().getMonth(); i++) {
+    for (let i = 0; i < new Date().getMonth()+1; i++) {
         let tempMonth = months[0];
 
         for (let j = 0; j < months.length; j++) {
