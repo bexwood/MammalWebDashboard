@@ -248,9 +248,18 @@ fetch('http://localhost:3389/dataUpload')
         document.getElementById('KPI6_total').innerHTML = x['6b'][0].value;
         document.getElementById('KPI6_other').innerHTML = x['6c'][0].value;
 
-
+        //document.getElementById('timestamp4').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
+        //document.getElementById('timestamp5').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
+        //document.getElementById('timestamp6').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
 });
 
+fetch('http://localhost:3389/dataProp')
+    .then(x => x.json())
+    .then(x => {
+        document.getElementById('timestamp4').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
+        document.getElementById('timestamp5').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
+        document.getElementById('timestamp6').innerHTML = '<i>Last updated: ' + x['date'] + '</i>';
+});
 
 const rotateLabels = () => {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

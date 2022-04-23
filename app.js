@@ -52,22 +52,35 @@ app.get('/data',  async (req, res) => {
 app.get('/dataUpload', async (req, res) => {
   res.send(fs.readFileSync('./uploads/uploadData.json').toString('utf8'));
 })
+app.get('/dataProp', async (req, res) => {
+  res.send(fs.readFileSync('./uploads/uploadProperties.json').toString('utf8'));
+})
 
 app.post('/upload', function (req, resp) {
   if (!req.files) {
     return resp.status(400).send("No files were uploaded.");
   }
     let file = req.files.file;
-    let path = 'uploads/uploadData.json';
-
-    file.mv(path, (err) => {
+    const path = require('path');
+    file.mv(path.join(__dirname,"uploads","uploadData.json"), (err) => {
       if (err) {
         resp.status(500).send(err);
       }
      // resp.send({ status: "success", path: path });
       resp.redirect('./')
     });
+    let d = Date()
+    let data = {
+      date : d
+    };
+    data = JSON.stringify(data, null, 1);
+    fs.writeFileSync(path.join(__dirname, "uploads","uploadProperties.json"), data, (err) => {
+      if (err) {
+          throw err;
+      }
+    });
 });
+
 
 
 module.exports = app;
